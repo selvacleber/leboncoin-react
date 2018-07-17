@@ -22,7 +22,16 @@ class Header extends React.Component {
         </React.Fragment>
       );
     }
-    return <NavLink to="/sign_up">Créer un compte</NavLink>;
+    return (
+      <React.Fragment>
+        <li>
+          <NavLink to="/sign_up">Créer un compte</NavLink>
+        </li>
+        <li>
+          <NavLink to="/log_in">Se connecter</NavLink>
+        </li>
+      </React.Fragment>
+    );
   }
   render() {
     return (
@@ -30,7 +39,7 @@ class Header extends React.Component {
         <h1>leboncoin</h1>
         <ul className="nav-list">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" />
           </li>
           {this.renderNav()}
         </ul>

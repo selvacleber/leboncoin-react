@@ -9,25 +9,27 @@ import Profile from "./containers/Profile";
 import Offer from "./containers/Offer";
 import Header from "./components/Header";
 
+// cookies : info stockés par les sites dans mon navigateurs
 class App extends Component {
   state = {
     user: {
+      // prendre l'info du navigateur ou ne rien mettre
       token: Cookies.get("token") || "",
       username: Cookies.get("username") || "",
       _id: Cookies.get("_id") || ""
-    }
+    } // sert a enregistrer si la personne est connectée ou pas
   };
 
   setUser = user => {
     Cookies.set("token", user.token);
     Cookies.set("username", user.username);
     Cookies.set("_id", user._id);
-
+    // rendre les données persistantes
     this.setState({
       user: user
     });
   };
-
+  // quand tu logout, on supprime les cookies
   logOut = () => {
     Cookies.remove("token");
     Cookies.remove("username");
@@ -57,7 +59,9 @@ class App extends Component {
           />
           <Route
             path="/log_in"
-            render={props => <LogIn {...props} user={user} />}
+            render={props => (
+              <LogIn {...props} user={user} setUser={this.setUser} />
+            )}
           />
           <Route
             path="/profile/:id"
