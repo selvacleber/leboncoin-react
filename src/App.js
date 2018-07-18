@@ -45,32 +45,38 @@ class App extends Component {
     return (
       <Router>
         <React.Fragment>
-          <Header user={user} logOut={this.logOut} />
-          <Route
-            exact
-            path="/"
-            render={props => <Home {...props} user={user} />}
-          />
-          <Route
-            path="/sign_up"
-            render={props => (
-              <SignUp {...props} user={user} setUser={this.setUser} />
-            )}
-          />
-          <Route
-            path="/log_in"
-            render={props => (
-              <LogIn {...props} user={user} setUser={this.setUser} />
-            )}
-          />
-          <Route
-            path="/profile/:id"
-            render={props => <Profile {...props} user={user} />}
-          />
-          <Route
-            path="/offer/:id"
-            render={props => <Offer {...props} user={user} />}
-          />
+          <div className="container">
+            <Header user={user} logOut={this.logOut} />
+            <Route
+              exact
+              path="/"
+              render={props => <Home {...props} user={user} />}
+            />
+            <Route
+              path="/sign_up"
+              render={props => (
+                <SignUp {...props} user={user} setUser={this.setUser} />
+              )}
+            />
+            <Route
+              path="/log_in"
+              render={props => (
+                <LogIn {...props} user={user} setUser={this.setUser} />
+              )}
+            />
+            <Route
+              path="/profile/:id"
+              render={props => <Profile {...props} user={user} />}
+            />
+            <Route
+              path="/offer/:id"
+              render={props => <Offer {...props} user={user} />}
+            />
+            <Route
+              path="/publish"
+              render={props => <Offer {...props} user={user} />}
+            />
+          </div>
         </React.Fragment>
       </Router>
     );

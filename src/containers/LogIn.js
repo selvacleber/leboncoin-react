@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 class LogIn extends React.Component {
   state = {
@@ -49,25 +50,41 @@ class LogIn extends React.Component {
   };
   render() {
     return (
-      <form onSubmit={this.onSubmit} className="form form-signup">
-        <label htmllog="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="text"
-          value={this.state.email} // la valeur correspond a l'état déclaré au début
-          onChange={this.handleChange} // afficher ce qui est écrit dans le formulaire
-        />
-        <label htmllog="email">password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
-        <input type="submit" value="Valider" />
-      </form>
+      <div className="logIn">
+        <div className="log">
+          <form onSubmit={this.onSubmit} className="form form-signup">
+            <h3>Connexion</h3>
+            <label htmllog="email">Email</label>
+            <input
+              className="email"
+              id="email"
+              name="email"
+              type="text"
+              value={this.state.email} // la valeur correspond a l'état déclaré au début
+              onChange={this.handleChange} // afficher ce qui est écrit dans le formulaire
+            />
+            <label htmllog="email">password</label>
+            <input
+              className="pwdlog"
+              id="password"
+              name="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+            <input className="createButton" type="submit" value="Valider" />
+
+            <label htmllog="email">Vous n'avez pas de compte</label>
+            <Link to="/sign_up">
+              <input
+                className="linkButton"
+                type="submit"
+                value="Creer un compte"
+              />
+            </Link>
+          </form>
+        </div>
+      </div>
     );
   }
 }

@@ -36,14 +36,21 @@ class Header extends React.Component {
   render() {
     return (
       <header>
-        <h1>leboncoin</h1>
-        <ul className="nav-list">
-          <li>
-            <NavLink to="/" />
-          </li>
-          {this.renderNav()}
-        </ul>
-        <hr />
+        <div className="lbc">
+          <img
+            className="logo"
+            src="https://static.leboncoin.fr/img/logo.svg"
+            alt=""
+          />
+        </div>
+        <div className="list">
+          <ul className="nav-list">
+            <li>
+              <NavLink to="/" />
+            </li>
+            {this.renderNav()}
+          </ul>
+        </div>
       </header>
     );
   }
