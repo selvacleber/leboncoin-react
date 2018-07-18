@@ -8,6 +8,7 @@ import LogIn from "./containers/LogIn";
 import Profile from "./containers/Profile";
 import Offer from "./containers/Offer";
 import Header from "./components/Header";
+import Publish from "./containers/Publish";
 
 // cookies : info stockés par les sites dans mon navigateurs
 class App extends Component {
@@ -69,11 +70,11 @@ class App extends Component {
               render={props => <Profile {...props} user={user} />}
             />
             <Route
-              path="/offer/:id"
-              render={props => <Offer {...props} user={user} />}
+              path="/publish"
+              render={props => <Publish {...props} user={user} />}
             />
             <Route
-              path="/publish"
+              path="/offer/:id"
               render={props => <Offer {...props} user={user} />}
             />
           </div>

@@ -12,3 +12,6 @@ header {
 .why {
   display: flex;
 }
+.annonce {
+  flex-direction: column;
+}
